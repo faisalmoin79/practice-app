@@ -1,9 +1,12 @@
 package com.example.demo;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Test1 {
 	public static int solution(int[] A) {
 		// write your code in Java SE 8
@@ -11,6 +14,12 @@ public class Test1 {
 		List<Integer> list = Arrays.stream(A) // IntStream
 				.boxed() // Stream<Integer>
 				.collect(Collectors.toList());
+		
+		Collections.sort(list);
+		
+		log.debug("Sorted List: {}",list);
+		
+		
 
 		for (int i = 0; i < A.length; i++) {
 			if (list.contains(result)) {
