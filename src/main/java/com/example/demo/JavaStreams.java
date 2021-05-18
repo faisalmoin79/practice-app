@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -13,6 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class JavaStreams {
+
+	private static List<String> listofParts;
+
 
 	@Builder
 	@Getter
@@ -55,7 +59,7 @@ public class JavaStreams {
 		// and you want to create a Stream of those inner elements, use flatMap() method
 		Stream<String> innerPartsStream = items.stream().flatMap(item -> item.getParts().stream());
 
-		List<String> listofParts = innerPartsStream.collect(Collectors.toList());
+		listofParts = innerPartsStream.collect(Collectors.toList());
 		log.debug("List of inner parts: {}", listofParts);
 
 	}
@@ -63,14 +67,6 @@ public class JavaStreams {
 	private static void usingReduce() {
 		Optional<Integer> result = Arrays.asList(1, 2, 3, 4).stream().reduce((a, b) -> a + b);
 		log.debug("Reduce result: {}", result.get());
-
-	}
-
-	public static void main(String[] args) {
-		usingFlatMap();
-		usingReduce();
-		usingSkipmethod();
-		lazyInvocation();
 
 	}
 
@@ -102,6 +98,37 @@ public class JavaStreams {
 		Stream<String> onceModifiedStream = Stream.of("abcd", "bbcd", "cbcd").skip(2); // remove first two items
 		log.debug("using skip method: {}", onceModifiedStream.collect(Collectors.toList()));
 
+	}
+	
+	
+	public static void main(String[] args) {
+		usingFlatMap();
+		usingReduce();
+		usingSkipmethod();
+		lazyInvocation();
+		sortingLists();
+
+	}
+
+	private static void sortingLists() {
+		log.info("\nsorting using streams....using list.sort()");
+		log.debug("listOfParts before: {}", listofParts);
+		listofParts.sort((part1,part2) -> part1.compareTo(part2));
+		log.debug("listOfParts after sort: {}", listofParts);
+		
+		
+		log.info("\nusing Collections.sort()");
+		usingFlatMap();
+		Collections.sort(listofParts);
+		log.debug("listOfParts after sort: {}", listofParts);
+		
+		log.info("\nusing Streams.sorted()");
+		usingFlatMap();
+		List<String> sortedLIst = listofParts.stream().sorted((part1, part2) -> part1.compareTo(part2)).collect(Collectors.toList());
+		log.debug("listOfParts after sort: {}", sortedLIst);
+		
+		
+		
 	}
 
 }
