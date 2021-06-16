@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class Test1 {
+public class SortRandomIntArray {
 	public static int solution(int[] A) {
 		// write your code in Java SE 8
 		int result = 1;
 		List<Integer> list = Arrays.stream(A) // IntStream
-				.boxed() // Stream<Integer>
+				.boxed() // returns a Stream<Integer>
 				.collect(Collectors.toList());
 		
 		Collections.sort(list);
@@ -35,6 +35,6 @@ public class Test1 {
 
 	public static void main(String[] args) {
 		int[] input = { 1, 3, 6, 4, 1, 2 };
-		System.out.println(Test1.solution(input));
+		System.out.println(SortRandomIntArray.solution(input));
 	}
 }
