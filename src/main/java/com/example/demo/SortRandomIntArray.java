@@ -19,8 +19,6 @@ public class SortRandomIntArray {
 		
 		log.debug("Sorted List: {}",list);
 		
-		
-
 		for (int i = 0; i < A.length; i++) {
 			if (list.contains(result)) {
 				result++;
