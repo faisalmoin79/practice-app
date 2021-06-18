@@ -107,7 +107,21 @@ public class JavaStreams {
 		usingSkipmethod();
 		lazyInvocation();
 		sortingLists();
+		sortAssending();
 
+	}
+
+	private static void sortAssending() {
+		int[] intArray = {3,56,24,1,87,-2,0,98,45,67};
+		List<Integer> intList = Arrays.stream(intArray).boxed().collect(Collectors.toList());
+		log.debug("Before sort: {}",intList);
+		intList.sort((a,b) -> b.compareTo(a));
+		log.debug("Comparable Sort: {}", intList);
+		Collections.sort(intList);
+		log.debug("Collections. Sort: {}", intList);
+		 
+		
+		
 	}
 
 	private static void sortingLists() {
