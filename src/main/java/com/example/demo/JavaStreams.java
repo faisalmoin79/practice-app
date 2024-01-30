@@ -82,7 +82,7 @@ public class JavaStreams {
 				log.debug("filter() was called");
 				return s.contains("2");
 			})
-		.peek(System.out::println)
+//		.peek(System.out::println)
 		.peek(s-> log.debug("peek was called on : {}",s))
 		.map(element -> {
 			log.debug("map(); was called");
@@ -104,11 +104,10 @@ public class JavaStreams {
 	public static void main(String[] args) {
 		usingFlatMap();
 		usingReduce();
-		usingSkipmethod();
 		lazyInvocation();
-		sortingLists();
+		usingSkipmethod();
 		sortAssending();
-
+		sortingLists();
 	}
 
 	private static void sortAssending() {

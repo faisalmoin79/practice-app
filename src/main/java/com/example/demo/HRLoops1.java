@@ -6,7 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class HRLoops1 {
-
+// Hacker Rank questions 
+// https://www.hackerrank.com/challenges/java-loops/problem?isFullScreen=true
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int t = in.nextInt();
@@ -29,13 +30,15 @@ public class HRLoops1 {
 		int result = a;
 		StringBuilder series = new StringBuilder();
 		while (i < n) {
-			result = get2ndArg(result, i++, b);
+			result = result + (int) Math.pow(2, i++) * b;
+			 // result = get2ndArg(result, i++, b);
 			series.append(result + " ");
 		}
 		return series.toString();
 	}
 
-	private static int get2ndArg(int result, int i, int b) {
-		return result + (int) Math.pow(2, i) * b;
-	}
+	/*
+	 * private static int get2ndArg(int result, int i, int b) { return result +
+	 * (int) Math.pow(2, i) * b; }
+	 */
 }
