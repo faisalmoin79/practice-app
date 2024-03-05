@@ -12,7 +12,7 @@ public class BinaryGap {
 		int gap = 0;
 		if (N > 0) {
 			String binaryString = getBinaryString(N);
-			// System.out.println("binaryString for "+N+" is "+binaryString);
+			System.out.println("binaryString for "+N+" is "+binaryString);
 			gap = getBinaryGap(binaryString);
 			// System.out.println(gap);
 		}

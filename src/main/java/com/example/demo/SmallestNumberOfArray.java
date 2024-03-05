@@ -30,7 +30,42 @@ public class SmallestNumberOfArray {
 		size = array.length;
 		List<Integer> someList = null;
 
-//		for (int i = 0; i < 2; i++) {
+		// brute force method 2 loops * n
+//		for (int i = 0; i < size; i++) {
+//			someList = Arrays.stream(array)
+//				      .boxed()
+//				      .collect(Collectors.toList());
+//			System.out.println("iteration "+(i)+" - array: "+someList);
+//			for (int j = i + 1; j < size; j++) {
+//				if (array[i] > array[j]) {
+////					System.out.println("\t swapped"+array[i]+" and "+array[j]);
+//					temp = array[i];
+//					array[i] = array[j];
+//					array[j] = temp;
+//					
+//				}
+//			}
+//		}
+		
+		// looping once to get smallest element on first index
+		for (int i = 0; i < 1; i++) {
+			someList = Arrays.stream(array)
+				      .boxed()
+				      .collect(Collectors.toList());
+			System.out.println("iteration "+(i)+" - array: "+someList);
+			for (int j = i + 1; j < size; j++) {
+				if (array[i] > array[j]) {
+					System.out.println("\t swapped"+array[i]+" and "+array[j]);
+					temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+				}
+			}
+			
+			
+		}
+//		
+//		for (int i = array.length-1; i > array.length-3; i--) {
 //			someList = Arrays.stream(array)
 //				      .boxed()
 //				      .collect(Collectors.toList());
@@ -42,41 +77,8 @@ public class SmallestNumberOfArray {
 //					array[j] = temp;
 //				}
 //			}
-//			
-//			
 //		}
-		for (int i = 0; i < 2; i++) {
-			someList = Arrays.stream(array)
-				      .boxed()
-				      .collect(Collectors.toList());
-			System.out.println("iteration "+(i)+" - array: "+someList);
-			for (int j = i + 1; j < size; j++) {
-				if (array[i] > array[j]) {
-					temp = array[i];
-					array[i] = array[j];
-					array[j] = temp;
-				}
-			}
-			
-			
-		}
-		
-		for (int i = array.length-1; i > array.length-3; i--) {
-			someList = Arrays.stream(array)
-				      .boxed()
-				      .collect(Collectors.toList());
-			System.out.println("iteration "+(i)+" - array: "+someList);
-			for (int j = i + 1; j < size; j++) {
-				if (array[i] > array[j]) {
-					temp = array[i];
-					array[i] = array[j];
-					array[j] = temp;
-				}
-			}
-			
-			
-		}
-		System.out.println(" Smallest element of the array is:: " + array[1]);
+		System.out.println(" Smallest element of the array is:: " + array[0]);
 	}
 	
 	
@@ -85,7 +87,7 @@ public class SmallestNumberOfArray {
 		log.debug(solution1("D"));
 		log.debug(solution1("e"));
 		log.debug(solution1("@"));
-		int array[] = { 10, 20, 25, 63, 96, 57 , 0, 5, 45, 34, 6, 2, 31, 24, 15};
+		int array[] = { 10, 20, 25, 63, 96, 57 ,1, 0, 5, 45, 34, 6, 2, 31, 24, 15};
 		sort(array);
 
 	}

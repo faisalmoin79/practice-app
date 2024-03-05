@@ -3,7 +3,6 @@ package com.example.demo;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-import java.util.function.IntFunction;
 
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
@@ -15,6 +14,7 @@ public class FunctionalInterfaceDemo {
 		log.debug("map with computeIfAbsent: {}", someMap);
 		
 		someMap.putIfAbsent("AnotherKey", 2);
+		log.debug("putting key in map if it is absent: {}", someMap);
 		 
 		// defining a custom Function  -> first param is input, second is output
 		Function<Integer, String> intoToStringFn = Object::toString;
